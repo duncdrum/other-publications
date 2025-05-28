@@ -7,6 +7,7 @@ jobs:
     generate-lastmod:
         runs-on: ubuntu-latest
         steps:
+            - uses: actions/checkout@v4
             - name: Get changed files
               id: changed-files
               run: |
@@ -70,10 +71,8 @@ jobs:
                     echo "Successfully created .last-modified/$file"
                     done
             - name: Commit and Push
-              run: |
-                git config --global user.name 'GitHub Actions'
-                git config --global user.email 'actions@github.com'
-                git pull
-                git add .last-modified/
-                git commit -m "fix: updated .last-modified [skip ci]" || echo "No changes to commit"
-                git push
+              uses: actions-x/commit@v6
+              with:
+                email: actions@github.com
+                name: GitHub Actions
+                message: "fix: updated .last-modified [skip ci]"
