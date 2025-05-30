@@ -1,7 +1,7 @@
 # This workflow builds a xar archive, deploys it into exist and execute a simple smoke test.
 # It also includes code for using semantic-release to upload packages as part of GitHub releases
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-# For node free automated release see https://trstringer.com/github-actions-create-release-upload-artifacts/ 
+# For node free automated release see https://trstringer.com/github-actions-create-release-upload-artifacts/
 
 name: exist-db CI
 
@@ -36,7 +36,7 @@ jobs:
           xmllint --noout \
             $(find . -type f -name '*.xml')
 
-      # Build 
+      # Build
       - name: Build Expath Package
         uses: actions/setup-java@v4
         with:
@@ -52,7 +52,7 @@ jobs:
           duncdrum/existdb:${{ matrix.exist-version }}
           sleep 10s
 
-      # Test       
+      # Test
       - name: Run test
         run: bats --tap test/*.bats
 
@@ -60,8 +60,8 @@ jobs:
       - name: lint commit message
         uses: wagoid/commitlint-github-action@v6
   lastmod:
-    # uses: ./.github/workflows/last-mod.yml
-    uses: HistoryAtState/ci-actions/.github/workflows/last-mod.yml@v1
+    uses: ./.github/workflows/last-mod.yml
+    # uses: HistoryAtState/ci-actions/.github/workflows/last-mod.yml@v1
     if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
     needs: build
     secrets: inherit
@@ -86,6 +86,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
         run: npx semantic-release
-        # TODO(DP): 
+        # TODO(DP):
         #   - add secrets to github
         #   - publish to public repo?
