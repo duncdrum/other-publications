@@ -63,6 +63,7 @@ jobs:
     uses: ./.github/workflows/last-mod.yml
     if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
     needs: build
+    secrets: inherit
   release:
     name: Release
     runs-on: ubuntu-latest
