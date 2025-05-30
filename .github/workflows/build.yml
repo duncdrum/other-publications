@@ -60,8 +60,8 @@ jobs:
       - name: lint commit message
         uses: wagoid/commitlint-github-action@v6
   lastmod:
-    uses: ./.github/workflows/last-mod.yml
-    # uses: HistoryAtState/ci-actions/.github/workflows/last-mod.yml@v1
+    # uses: ./.github/workflows/last-mod.yml
+    uses: HistoryAtState/ci-actions/.github/workflows/last-mod.yml@v1
     if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
     needs: build
     secrets: inherit
