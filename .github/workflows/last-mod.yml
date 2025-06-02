@@ -76,6 +76,8 @@ jobs:
                     fi
                     echo "Successfully created .last-modified/$file"
                     done
+            - name: Pull
+              run: git pull
             - name: Commit and Push
               uses: actions-x/commit@v6
               with:
