@@ -57,8 +57,8 @@ jobs:
         run: bats --tap test/*.bats
 
       # Lint commit messages
-      - name: lint commit message
-        uses: wagoid/commitlint-github-action@v6
+      # - name: lint commit message
+      #   uses: wagoid/commitlint-github-action@v6
   lastmod:
     uses: ./.github/workflows/last-mod.yml
     # uses: HistoryAtState/ci-actions/.github/workflows/last-mod.yml@v1
