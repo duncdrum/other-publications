@@ -77,6 +77,8 @@ jobs:
           persist-credentials: false
       - name: log
         run: git log
+      - name: pull
+        run: git pull
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
