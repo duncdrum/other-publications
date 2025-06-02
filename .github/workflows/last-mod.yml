@@ -83,4 +83,6 @@ jobs:
               with:
                 email: actions@github.com
                 name: GitHub Actions
-                message: "fix: updated .last-modified [skip ci]"
+                message: "fix: updated .last-modified [skip ci
+            - name: log
+              run: git log
