@@ -3,7 +3,7 @@
   "description": "Other Publications (data)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/HistoryAtState/other-publications"
+    "url": "https://github.com/duncdrum/other-publications"
   },
   "author": "Office of the Historian",
   "devDependencies": {
