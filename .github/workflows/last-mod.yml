@@ -9,7 +9,7 @@ jobs:
         steps:
             - uses: actions/checkout@v4
               with:
-                fetch-depth: 2
+                fetch-depth: 0
             - name: Get changed files
               id: changed-files
               run: |
@@ -76,8 +76,6 @@ jobs:
                     fi
                     echo "Successfully created .last-modified/$file"
                     done
-            - name: Pull
-              run: git pull
             - name: Commit and Push
               uses: actions-x/commit@v6
               with:
