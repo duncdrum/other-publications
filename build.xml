@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="xar" name="other-publications" basedir=".">
-    <!-- TODO(DP): make git props conditional, so that only semantic release on CI will set them -->
-    <!-- TODO(DP): modify ci deploy so that semantic release runs on master, but lastmod on PR -->
-    <!-- https://stackoverflow.com/questions/13553673/conditional-property-in-ant-properties-file
-    https://stackoverflow.com/questions/1618493/ant-1-6-5-how-to-set-two-properties-in-one-condition-or-if?rq=3  -->
     <xmlproperty file="build.properties.xml" semanticAttributes="true" keepRoot="false" />
     <property name="build.dir" value="build" />
     <property name="git.repo.path" value="${basedir}/.git" />
